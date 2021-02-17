@@ -1,0 +1,10 @@
+{% extends 'kaikei/base.html' %}
+{% block content %}
+<html>{% include './waitingcustomer_list.html' %}</html>
+    <p>こんにちは{{ user.username }}さん</p>
+    <a href="{% url 'kaikei:customer_list' %}">受付</a><br>
+    <a href="{% url 'kaikei:choice_create' %}">会計</a><br>
+    <a href="{% url 'kaikei:customer_create' %}">新規登録</a><br>
+    <a href="http://127.0.0.1:8000/admin/">管理ページ</a><br>
+    <p><a href="{% url 'logout' %}">ログアウト</a></p>
+{% endblock %}

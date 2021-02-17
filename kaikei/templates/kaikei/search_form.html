@@ -1,0 +1,10 @@
+<p class="menu-label">検索フォーム</p>
+<form action="{% url 'kaikei:customer_list' %}" method="GET">
+    <div class="field">
+        <div class="control">
+            {{ form.customer_id }}
+        </div>
+    </div>
+
+    <button class="button is-primary" type="submit">検索</button>
+</form>

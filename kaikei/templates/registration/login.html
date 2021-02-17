@@ -1,0 +1,24 @@
+{% extends '../kaikei/base.html' %}
+{% block content %}
+<body class="text-center">
+    <div class="form-signin">
+        <h1 class="h3 mb-3 fw-normal">ログインフォーム画面</h1>
+        <form method="POST">
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                <div class="field">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                        <span class="helptext">{{ field.help_text }}</span>
+                    {% endif %}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+            {% csrf_token %}
+            <button class="w-100 btn btn-lg btn-primary" type="submit">ログイン</button>
+        </form>
+    </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'kaikei/base.html' %}
+{% load kaikei %}
+{% block content %}
+    <aside class="column is-4 is-offset-1">
+        {% create_search_form request %}
+    </aside>
+    <div>
+        {% for customer in customer_list %}
+            <option>ID: {{ customer.customer_id }} 名前: {{ customer.name }}</option>
+            <p><a href="{% url 'kaikei:customer_detail' customer.customer_id %}">受付</a></p> 
+        {% endfor %}  
+    </div>
+    {% if queryset %}
+        {% for customer in queryset %}
+            <p><a href="{% url 'kaikei:customer_detail' customer.customer_id %}">受付</a></p> 
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'kaikei:top' %}">トップへ</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'kaikei/base.html' %}
+{% block content %}
+    <p>保険  小計：{{ choice.hoken_total_score }}円</p>
+    <p>自責  小計：{{ choice.jiseki_total_score }}円</p>
+    <p>物療  小計：{{ choice.buturyou_total_score }}円</p>
+    <p>商品  小計：{{ choice.shouhin_total_score }}円</p>
+    <p>　　  合計：{{ choice.total_score }}円</p>
+    <form action="{% url 'kaikei:top' %}" method="GET">
+        <button type="">トップへ</button>
+    </form>
+{% endblock %}

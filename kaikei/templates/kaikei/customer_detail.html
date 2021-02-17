@@ -1,0 +1,5 @@
+{% extends 'kaikei/base.html' %}
+{% block content %}
+    <p>名前: {{ customer.name }} - 来院中: {{ customer.is_waiting }}</p>
+    <a href="{% url 'kaikei:customer_update' customer.pk %}">更新</a>
+{% endblock %}
