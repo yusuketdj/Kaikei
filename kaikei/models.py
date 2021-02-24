@@ -7,6 +7,13 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
     age = models.IntegerField(null=True)
 
+class Clinic(models.Model):
+    name = models.CharField('名前', max_length=255)
+
+class Branch(models.Model):
+    name = models.CharField('支店', max_length=255)
+    clinic = models.ForeignKey(Clinic, verbose_name='所属医院', blank=False, on_delete=models.PROTECT)
+   
 class Customer(models.Model):
     customer_id = models.AutoField(primary_key=True)
     name = models.CharField('名前', max_length=255)
